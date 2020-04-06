@@ -1,10 +1,5 @@
 class ApplicationController < ActionController::Base
-    def index
-    if logged_in?
-      @micropost = current_user.microposts.build  # form_with 用
-      @microposts = current_user.microposts.order(id: :desc).page(params[:page])
-    end
-    end
+  include SessionsHelper
     private
 
   def require_user_logged_in
